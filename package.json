@@ -1,0 +1,27 @@
+{
+  "name": "sn58-validator-dashboard",
+  "private": true,
+  "type": "commonjs",
+  "version": "1.0.0",
+  "description": "Local SN58-inspired validator dashboard (MERN technical assessment starter)",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run build -w @sn58/shared && concurrently -n server,client -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w @sn58/shared && npm run build -w server && npm run build -w client",
+    "test": "npm run test -w server && npm run test -w client",
+    "seed": "npm run seed -w server",
+    "lint": "npm run lint -w server && npm run lint -w client",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.4.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

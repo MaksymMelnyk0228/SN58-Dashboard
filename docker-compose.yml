@@ -1,0 +1,12 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: sn58-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - sn58_mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  sn58_mongo_data:
